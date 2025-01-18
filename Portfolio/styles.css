@@ -102,6 +102,34 @@ button:hover {
     background: #0056b3;
 }
 
+.resume-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient background */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Button shadow */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+    text-align: center;
+}
+
+.resume-button:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+.resume-button:active {
+    transform: translateY(1px); /* Press-down effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+}
+
 /* Footer Styles */
 footer {
     text-align: center;
