@@ -33,3 +33,9 @@ data = data.drop_duplicates()
 # Saving the cleaned dataset
 data.to_csv("cleaned_ecommerce_data.csv", index=False)
 print("Cleaned dataset saved as cleaned_ecommerce_data.csv")
+
+# creating pivot table where row shows the user, column shows the products and values indicates the rating
+interaction_matrix = data.pivot_table(index='User_ID', columns='Product_ID', values='Rating').fillna(0)
+
+print("User-Item Interaction MAtrix:")
+print(interaction_matrix)
