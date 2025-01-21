@@ -15,3 +15,21 @@ print("Column Names:", data.columns)
 
 # checking data types
 print("Data Types:", data.dtypes)
+
+# Verifying the dataset
+print("Dataset Dimensions:", data.shape)
+print("Column Names:", data.columns)
+print("Data Types:")
+print(data.dtypes)
+
+# Checking for missing values
+print("Missing Values:")
+print(data.isnull().sum())
+
+# Handling duplicates
+print("Duplicate Rows:", data.duplicated().sum())
+data = data.drop_duplicates()
+
+# Saving the cleaned dataset
+data.to_csv("cleaned_ecommerce_data.csv", index=False)
+print("Cleaned dataset saved as cleaned_ecommerce_data.csv")
