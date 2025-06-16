@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #28313B, #485461);
+    color: #f5f5f5;
+    text-align: center;
+  }
+  
+  header {
+    padding: 20px;
+  }
+  
+  nav a {
+    color: #00adb5;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #ff5722;
+  }
+  
+  #projects .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  form input, form textarea {
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #00adb5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
