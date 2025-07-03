@@ -63,9 +63,14 @@ def fetch_stock_metrics(ticker):
 
     try:
         nse_data = nse_eq(nse_symbol)
-        upper_circuit = float(nse_data["priceInfo"]["upperCP"])
-        lower_circuit = float(nse_data["priceInfo"]["lowerCP"])
-        ltp = float(nse_data["priceInfo"]["lastPrice"])
+
+        price_info = nse_data.get("priceInfo")
+        if not price_info:
+            raise ValueError(f"Missing 'priceInfo' in NSE data for {ticker}")
+
+        upper_circuit = float(price_info["upperCP"])
+        lower_circuit = float(price_info["lowerCP"])
+        ltp = float(price_info["lastPrice"])
 
         if ltp >= upper_circuit:
             circuit_status = f"U@{upper_circuit}"
@@ -73,9 +78,11 @@ def fetch_stock_metrics(ticker):
             circuit_status = f"L@{lower_circuit}"
         else:
             circuit_status = "---"
+
     except Exception as e:
         print(f"Error parsing NSE data for {ticker}: {e}")
         circuit_status = "N/A"
+
 
     if circuit_status.startswith("U@"):
         circuit_event = "Upper Hit"
