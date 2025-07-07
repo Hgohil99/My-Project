@@ -1,0 +1,4 @@
+Ticker,Current Price,Open Price,Previous Close,Day High,Day Low,52W High,52W Low,Circuit Status,Circuit Event,Promoter Holding,FII Holding,DII Holding,Public Holding
+RELIANCE.NS,1541.5,1526.6,1527.3,1544.8,1525.0,1608.8,1114.85,---,Normal,N/A,N/A,N/A,N/A
+TCS.NS,3411.7,3418.3,3419.8,3426.1,3408.4,4592.25,3056.05,N/A,Unavailable,N/A,N/A,N/A,N/A
+INFY.NS,1627.0,1640.0,1640.7,1644.0,1623.0,2006.45,1307.0,---,Normal,N/A,N/A,N/A,N/A
