@@ -1,26 +1,29 @@
-@import "tailwindcss";
+/* global.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: white;
+  animation: pulse 1.5s infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.badge-upper {
+  background-color: #dc2626; /* red-600 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.badge-lower {
+  background-color: #2563eb; /* blue-600 */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.badge-normal {
+  background-color: #6b7280; /* gray-500 */
+  animation: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }

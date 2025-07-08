@@ -9,6 +9,8 @@ from nsepython import nse_eq
 from app.config import CONFIG
 from bs4 import BeautifulSoup
 from datetime import datetime
+
+
 #to get share holding pattern need to setup selenium for headerless browser
 def get_shareholding_from_screener(symbol):
     try:
@@ -113,10 +115,17 @@ def fetch_stock_metrics(ticker):
     return result
 
 def save_metrics_to_csv(metrics_list):
-    date_str = datetime.now().strftime("%Y-%m-%d")
+    date_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     folder_path = r"D:\Hardik\Coding\My Project\sm_app_v1\StockLogs" 
     os.makedirs(folder_path, exist_ok=True)
     file_path = os.path.join(folder_path, f"sm_metrics_{date_str}.csv")
+
+    if os.path.exists(file_path):
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            print(f" Could not delete existing file: {e}")
+            return
 
     with open(file_path, mode="w", newline='', encoding="utf-8") as file:
         writer = csv.writer(file)
@@ -142,6 +151,9 @@ if __name__ == "__main__":
     result = []
     for symbol in CONFIG["stocks_to_track"]:
         metrics = fetch_stock_metrics(symbol)
-        print(metrics)
-        result.append(metrics)
+        if "error" not in metrics:
+            result.append(metrics)
+        else:
+            print(metrics["error"])
+
     save_metrics_to_csv(result)

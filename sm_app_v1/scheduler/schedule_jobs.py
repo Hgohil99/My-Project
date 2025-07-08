@@ -10,15 +10,23 @@ def delete_old_logs(days_to_keep=2):
     folder = r"D:\Hardik\Coding\My Project\sm_app_v1\StockLogs"
     cutoff = time.time() - days_to_keep * 86400
     deleted = []
+
     for file in os.listdir(folder):
         path = os.path.join(folder, file)
-        if os.path.isfile(path) and os.path.getmtime(path) < cutoff:
+        if (
+            os.path.isfile(path)
+            and file.startswith("sm_metrics_")  # Safety check
+            and file.endswith(".csv")
+            and os.path.getmtime(path) < cutoff
+        ):
             os.remove(path)
             deleted.append(file)
+
     if deleted:
-        print(f" Deleted {len(deleted)} old log(s): {deleted}")
+        print(f"🧹 Deleted {len(deleted)} old log(s): {deleted}")
     else:
-        print(" No old logs to delete.")
+        print("🧼 No old logs to delete.")
+
 
 def scheduled_task():
     results = []
